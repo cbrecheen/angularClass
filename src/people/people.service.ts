@@ -22,16 +22,12 @@ export class PeopleService {
     }
 
     updatePerson(update) {
-        let i = this.people.indexOf(update.person);
-        this.people[i].isActive = update.isActive;
-
-        //  TODO: we know we should use map, but we couldn't get this to work.
-        // this.people = this.people.map(person => {
-        //     console.log(person, update);
-        //    if (person.guid === update.person.guid) {
-        //        person.isActive = !person.isActive;
-        //    }
-        // }) 
+        this.people = this.people.map( person => {
+            if (person.guid === update.person.guid) {
+                person.isActive = !person.isActive;
+            }
+            return person;
+        })
     }
 }
 
