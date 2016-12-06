@@ -2,30 +2,15 @@ import './polyfills.browser';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { NgModule, Component } from '@angular/core';
-import { PeopleService } from './people/people.service';
-import { MyPeopleComponent } from './people/people.component';
-import { MyPersonComponent } from './people/person.component';
+import { AppComponent } from './app/app.component';
+import { AppModule } from './app/app.module';
 
-@Component({
-  selector: 'app',
-  template: `
-    Hello Extensis.<br/>
-    <my-people></my-people>
-  `
-})
-class AppComponent{}
 @NgModule({
   bootstrap: [AppComponent],
-  declarations: [ 
-    AppComponent,
-    MyPeopleComponent,
-    MyPersonComponent ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppModule
   ],
-  providers: [
-    PeopleService
-  ]
 })
 class MainModule {}
 
