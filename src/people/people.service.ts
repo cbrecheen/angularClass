@@ -24,12 +24,13 @@ export class PeopleService {
     }
 
     updatePerson(update) {
-        // this.people = this.people.map( person => {
-        //     if (person.guid === update.person.guid) {
-        //         person.isActive = !person.isActive;
-        //     }
-        //     return person;
-        // })
+        const newPeople = this.getPeople().map( person => {
+            if (person.guid === update.person.guid) {
+                person.isActive = !person.isActive;
+            }
+            return person;
+        })
+        this.store.update('people', newPeople);
     }
 }
 
