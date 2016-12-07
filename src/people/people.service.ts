@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
 import { data } from '../data-json';
+import { Store } from '../shared/store.service';
 
 @Injectable()
 export class PeopleService {
-    people = [];
 
-    constructor () {
-        this.people = data;        
+    constructor (public store: Store) {
+        store.update('people', data);   
     }
 
     getPeople() {
-        return this.people;
+        console.log("getPeople() returning: " + this.store.getCurrentState().people);
+        return this.store.getCurrentState().people;
     }
 
     getActivePeople() {
+        
         return this.getPeople().filter(person => person.isActive === true);        
     }
 
@@ -22,12 +24,12 @@ export class PeopleService {
     }
 
     updatePerson(update) {
-        this.people = this.people.map( person => {
-            if (person.guid === update.person.guid) {
-                person.isActive = !person.isActive;
-            }
-            return person;
-        })
+        // this.people = this.people.map( person => {
+        //     if (person.guid === update.person.guid) {
+        //         person.isActive = !person.isActive;
+        //     }
+        //     return person;
+        // })
     }
 }
 
