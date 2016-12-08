@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+
 import { PeopleModule } from '../people/people.module';
 import { AppComponent } from './app.component';
 
@@ -10,7 +11,7 @@ import { AppComponent } from './app.component';
     PeopleModule    
   ],
   imports: [
-      PeopleModule
+      PeopleModule,
   ]
 })
 

@@ -1,5 +1,7 @@
 import { NgModule, Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+
 import { PeopleService } from './people.service';
 import { MyPeopleComponent } from './people.component';
 import { MyPersonComponent } from './person.component';
@@ -10,7 +12,8 @@ import { MyPersonComponent } from './person.component';
     MyPersonComponent 
     ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     MyPeopleComponent,

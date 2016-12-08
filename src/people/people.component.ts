@@ -10,7 +10,9 @@ import { MyPersonComponent } from './person.component';
       <button (click)="getInactivePeople()">Inactive</button>
       <ul>
         <li *ngFor="let item of peopleList">
-            <my-person [person]="item" (updatePerson)="onUpdatePerson($event)" ></my-person>
+            <a href="http://something">
+                <my-person [person]="item" (updatePerson)="onUpdatePerson($event)" ></my-person>
+            </a>
         </li>
       </ul>
     `
